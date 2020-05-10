@@ -8,20 +8,21 @@ import UserOutput from './UserOutput/UserOutput';
 
 class App extends Component {
   state = {
-    user: [
+    user: 
       {name:'Mike'}
-    ]
+    
   };
 
-  usernameChangeHandler = (event) =>{
+  handleUsernameChange = (event) =>{
+    const { value }  = event.target;
     this.setState( {
-      user: [
-        {name: event.target.value}
-      ]
+      user: {name: value}
+      
     })
   }
 
   render() {
+    const {user:{name}} = this.state;
     return (
       <div className="App">
         {/* <ol>
@@ -37,11 +38,11 @@ class App extends Component {
           <li>Add styling of your choice to your components/ elements in the components - both with inline styles and stylesheets</li>
         </ol>  */}
           <UserInput
-          changed={this.usernameChangeHandler}
-          username={this.state.user[0].name}
+          onChange={this.handleUsernameChange}
+          username={name}
           />
           <UserOutput
-          username={this.state.user[0].name}
+          username={name}
           />
           <UserOutput/>
           <UserOutput/>

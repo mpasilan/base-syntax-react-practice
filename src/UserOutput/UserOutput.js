@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './UserOutput.css'
-const useroutput = (props) => {
+const useroutput = ({username}) => {
     const style = {
         textAlign:'left',
         fontSize:'30px',
@@ -11,7 +11,7 @@ const useroutput = (props) => {
     return (
         <div className="Output">
             
-            <h4 style={style}>{props.username}</h4>
+            <h4 style={style}>{username}</h4>
             <p>
             They rushed out the door, grabbing anything and 
             everything they could think of they might need.
